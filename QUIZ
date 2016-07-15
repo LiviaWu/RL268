@@ -1,0 +1,18 @@
+crew <- c("Monkey D Luffy", "Roronoa Zoro", "Nami", "Usopp", "Vinsmoke Sanji", "Tony Tony Chopper", "Nico Robin", "Franky", "Brook")
+birthday <- c("1997-05-05", "1995-11-11", "1996-07-03", "1997-04-01", "1995-03-02", "1999-12-24", "1986-02-06", "1980-03-09", "1926-04-03")
+gender <- c("Male", "Male", "Female", "Male", "Male", "Male", "Female", "Male", "Male")
+strawHatPirate <-data.frame(crew,birthday,gender)
+
+crew <- c("Monkey D Luffy", "Tony Tony Chopper", "Nico Robin", "Brook")
+devilFruit <- c("Rubber", "Human", "Flower", "Underworld")
+strawHatDevilFruit <- data.frame(crew,devilFruit)
+
+strawHatPirate$born <- as.Date(strawHatPirate$birthday, format= "%Y-%m-%d")
+
+strawHatPirate$age  <-  round(as.numeric((Sys.Date() - strawHatPirate$born)/365))
+
+View(strawHatPirate)
+
+strawHatMerged <- merge(strawHatPirate,strawHatDevilFruit,all.x = TRUE)
+
+View(strawHatMerged)
